@@ -19,7 +19,7 @@ export default function Hero() {
         <div className='text-center'>
             <h1 className='text-yellow-500 font-bold text-3xl md:flex md:text-6xl md:pb-2'>Javier González</h1>
             <h2 className='text-black dark:text-neutral-200 font-semibold text-lg pt-1 pb-2'>
-              Analista de sistemas y Desarrollador Front End de <span className='text-blue-400'>Argentina</span>.</h2>
+              Analista de sistemas y Desarrollador Full Stack de <span className='text-blue-400'>Argentina</span>.</h2>
             <div className='md:flex'>
               <button 
                 className="text-black font-semibold px-4 py-2 bg-yellow-400/90 hover:bg-yellow-300 rounded-md" 

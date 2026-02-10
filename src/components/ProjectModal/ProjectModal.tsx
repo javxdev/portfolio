@@ -11,6 +11,7 @@ interface ProjectModalProps {
 
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   const { registerMagneticTarget } = useCursor();
 
   // Handle Escape key + body scroll lock
@@ -30,6 +31,31 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
     };
   }, [project, onClose]);
 
+  // Prevent wheel events from bubbling to the parent section
+  useEffect(() => {
+    if (!project) return;
+    const modal = modalRef.current;
+    if (!modal) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      const { scrollTop, scrollHeight, clientHeight } = modal;
+      const atTop = scrollTop === 0 && e.deltaY < 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
+
+      // Only stop propagation if there's actually overflow to scroll
+      if (!atTop && !atBottom) {
+        e.stopPropagation();
+      } else if (scrollHeight > clientHeight) {
+        // At boundary but modal is scrollable — still prevent parent scroll
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    };
+
+    modal.addEventListener('wheel', handleWheel, { passive: false });
+    return () => modal.removeEventListener('wheel', handleWheel);
+  }, [project]);
+
   // Register close button as magnetic target
   useEffect(() => {
     if (project && closeButtonRef.current) {
@@ -39,7 +65,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
   if (!project) return null;
 
-  // Framer Motion variants (typed)
   const overlayVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -54,7 +79,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
       y: 0,
       transition: {
         duration: 0.4,
-        ease: 'easeInOut', // TS safe
+        ease: 'easeInOut',
       },
     },
     exit: {
@@ -63,7 +88,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
       y: 20,
       transition: {
         duration: 0.3,
-        ease: 'easeInOut', // added for type safety
+        ease: 'easeInOut',
       },
     },
   };
@@ -80,6 +105,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           onClick={onClose}
         >
           <motion.div
+            ref={modalRef}
             className={styles.modal}
             variants={modalVariants}
             onClick={(e) => e.stopPropagation()}
@@ -100,6 +126,32 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   alt={project.title}
                   className={styles.mainImage}
                 />
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.liveButton}
+                  >
+                    <span>View Live Project</span>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M6 18L8.5 15.5M18 6H9M18 6V15M18 6L11.5 12.5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </a>
+                )}
               </div>
             )}
 

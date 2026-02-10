@@ -27,6 +27,8 @@
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  /* Prevent scroll from leaking to parent section */
+  overscroll-behavior: contain;
   padding: 3rem;
 }
 
@@ -39,10 +41,55 @@
 }
 
 .modal::-webkit-scrollbar-thumb {
-  background: var(--color-red-primary);
+  background: var(--color-primary-red);
   border-radius: 4px;
 }
 
+/* ── Live Button — now a real filled button ── */
+.liveButton {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 1.1rem;
+  background: var(--color-primary-red);
+  border: 1.5px solid var(--color-primary-red);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    gap 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.liveButton:hover {
+  background: transparent;
+  color: var(--color-primary-red);
+  gap: 12px;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 42, 42, 0.35);
+}
+
+.liveButton svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.liveButton:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* ── Close Button ── */
 .closeButton {
   position: absolute;
   top: 1.5rem;
@@ -59,15 +106,18 @@
   font-size: 1.5rem;
   transition: all 0.3s ease;
   z-index: 1;
+  cursor: pointer;
 }
 
 .closeButton:hover {
-  border-color: var(--color-red-primary);
-  color: var(--color-red-primary);
+  border-color: var(--color-primary-red);
+  color: var(--color-primary-red);
   transform: rotate(90deg);
 }
 
+/* ── Image Gallery ── */
 .imageGallery {
+  position: relative;
   width: 100%;
   margin-bottom: 2rem;
   border-radius: 8px;
@@ -80,6 +130,7 @@
   object-fit: cover;
 }
 
+/* ── Content ── */
 .title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -89,7 +140,7 @@
 
 .role {
   font-size: 0.95rem;
-  color: var(--color-red-primary);
+  color: var(--color-primary-red);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 2rem;
@@ -123,13 +174,14 @@
   font-size: 0.85rem;
   padding: 0.5rem 1rem;
   background: var(--bg-primary);
-  border: 1px solid var(--color-red-primary);
+  border: 1px solid var(--color-primary-red);
   border-radius: 6px;
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .overlay {
     padding: 1rem;

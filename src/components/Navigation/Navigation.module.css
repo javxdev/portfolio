@@ -1,0 +1,385 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(10, 10, 10, 0.8) 50%,
+    transparent 100%
+  );
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+}
+
+.logoImg {
+  width: 48px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+}
+
+.logoImg:hover {
+  transform: scale(1.1);
+}
+
+.desktopOnly {
+  display: block;
+}
+
+.navList {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: none;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+  pointer-events: auto;
+}
+
+.navItem:hover {
+  color: var(--color-text-primary);
+}
+
+.navItem.active {
+  color: var(--color-primary-red);
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary-red);
+  box-shadow: 0 0 8px var(--color-primary-red);
+}
+
+.themeToggle {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.themeToggle:hover {
+  border-color: var(--color-primary-red);
+  transform: rotate(20deg);
+}
+
+/* Mobile Menu Trigger Button - Hidden on Desktop */
+.mobileMenuTrigger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: fixed;
+  right: 3rem;
+  top: 2rem;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.menuIcon {
+  width: 48px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+/* Lightsaber Ignition Effect */
+.lightsaberBlade {
+  position: fixed;
+  top: 0;
+  right: 3rem;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 42, 42, 0) 0%,
+    rgba(255, 42, 42, 1) 10%,
+    rgba(255, 42, 42, 1) 90%,
+    rgba(255, 42, 42, 0) 100%
+  );
+  box-shadow: 
+    0 0 10px rgba(255, 42, 42, 0.8),
+    0 0 20px rgba(255, 42, 42, 0.6),
+    0 0 30px rgba(255, 42, 42, 0.4);
+  z-index: 1001;
+  pointer-events: none;
+}
+
+/* Mobile Menu Panel */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255, 42, 42, 0.2);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  box-shadow: 
+    -5px 0 30px rgba(255, 42, 42, 0.1),
+    inset 1px 0 0 rgba(255, 42, 42, 0.2);
+  pointer-events: auto;
+}
+
+/* Close Button inside Mobile Menu */
+.mobileMenuClose {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1002;
+  pointer-events: auto;
+}
+
+.closeIcon {
+  width: 48px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.5));
+  pointer-events: none;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.mobileNavItem {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 42, 42, 0.2);
+  color: var(--color-text-muted);
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: rgba(255, 42, 42, 0.3);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mobileNavItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 42, 42, 0.1) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.mobileNavItem:hover {
+  border-color: rgba(255, 42, 42, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 5px 20px rgba(255, 42, 42, 0.2),
+    0 0 30px rgba(255, 42, 42, 0.1);
+  color: var(--color-text-primary);
+}
+
+.mobileNavItem:hover::before {
+  opacity: 1;
+}
+
+.mobileNavItem svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mobileNavItem.activeMobile {
+  background: rgba(255, 42, 42, 0.1);
+  border-color: rgba(255, 42, 42, 0.8);
+  color: #FF2A2A;
+  box-shadow: 
+    0 0 20px rgba(255, 42, 42, 0.3),
+    inset 0 0 20px rgba(255, 42, 42, 0.1);
+}
+
+.mobileNavItem.activeMobile::before {
+  opacity: 1;
+}
+
+/* Tablet and Mobile Styles */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 1.5rem 2rem;
+  }
+
+  /* Hide desktop logo */
+  .desktopOnly {
+    display: none;
+  }
+
+  /* Hide desktop navigation */
+  .navList {
+    display: none;
+  }
+
+  .themeToggle {
+    display: none;
+  }
+
+  /* Show mobile menu button */
+  .mobileMenuTrigger {
+    display: block;
+    right: 2rem;
+    top: 1.5rem;
+  }
+
+  .lightsaberBlade {
+    right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .logoImg {
+    width: 40px;
+  }
+
+  .mobileMenuTrigger {
+    right: 1.5rem;
+    top: 1rem;
+  }
+
+  .menuIcon {
+    width: 40px;
+  }
+
+  .closeIcon {
+    width: 40px;
+  }
+
+  .mobileMenu {
+    width: 100px;
+    padding-top: 1.5rem;
+  }
+
+  .mobileMenuClose {
+    margin-bottom: 2.5rem;
+  }
+
+  .mobileNavItem {
+    width: 50px;
+    height: 50px;
+  }
+
+  .mobileNavItem svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobileNavList {
+    gap: 2rem;
+  }
+
+  .lightsaberBlade {
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 1rem;
+  }
+
+  .mobileMenuTrigger {
+    right: 1rem;
+    top: 1rem;
+  }
+
+  .closeIcon {
+    width: 36px;
+  }
+
+  .mobileMenu {
+    width: 80px;
+    padding-top: 1rem;
+  }
+
+  .mobileMenuClose {
+    margin-bottom: 2rem;
+  }
+
+  .mobileNavItem {
+    width: 45px;
+    height: 45px;
+  }
+
+  .mobileNavList {
+    gap: 1.5rem;
+  }
+
+  .lightsaberBlade {
+    right: 1rem;
+  }
+}

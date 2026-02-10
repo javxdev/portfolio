@@ -1,0 +1,101 @@
+:root {
+  /* Dark Mode Colors (Default) */
+  --color-background: #0A0A0A;
+  --color-surface: #121212;
+  --color-primary-red: #E10600;
+  --color-secondary-red: #FF2A2A;
+  --color-silver: #BFC3C9;
+  --color-text-primary: #F5F5F5;
+  --color-text-muted: #9A9A9A;
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  position: relative;
+}
+
+[data-theme='light'] {
+  --color-background: #FFFFFF;
+  --color-surface: #F4F4F4;
+  --color-primary-red: #E10600;
+  --color-silver: #8B8F97;
+  --color-text-primary: #0A0A0A;
+  --color-text-muted: #5F6368;
+  --color-border: rgba(0, 0, 0, 0.08);
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: auto;
+  font-size: 16px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--color-primary-red);
+  color: var(--color-text-primary);
+}
+
+button,
+a,
+input,
+textarea {
+  cursor: none !important;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-red);
+}
+
+@media (max-width: 768px) {
+  /* Re-enable default cursor on mobile */
+  * {
+    cursor: auto !important;
+  }
+}

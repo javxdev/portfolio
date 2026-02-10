@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+
+.eyebrow {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary-red);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.title {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 700;
+  line-height: 0.95;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+.subtitle {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--color-silver);
+  margin-bottom: 3rem;
+  max-width: 800px;
+}
+
+.roles {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  color: var(--color-silver);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.typeText {
+  font-weight: 500;
+  color: var(--color-primary-red);
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 2px;
+  background-color: currentColor;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.mouse {
+  width: 28px;
+  height: 48px;
+  border: 2px solid var(--color-silver);
+  border-radius: 14px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 6px;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--color-primary-red);
+  border-radius: 2px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 1.5rem;
+  }
+
+  .roles {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .roleText {
+    min-width: auto;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,407 @@
+.about {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  cursor: none;
+}
+
+.about:hover {
+  cursor: default;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 200vh;
+  top: -50vh;
+  left: 0;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.fade {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+  bottom: 0;
+  opacity: 0.6;
+}
+
+.controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.controls * {
+  pointer-events: auto;
+}
+
+.controlsVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.controlsHidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.controlsWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.playPauseBtn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.playPauseBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.playPauseBtn:active {
+  transform: scale(0.95);
+}
+
+.playPauseBtn svg {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.speedControls {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.speedBtn {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.speedBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.speedBtn:hover::before {
+  opacity: 1;
+}
+
+.speedBtn:hover {
+  color: #fff;
+}
+
+.speedBtn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.speedBtn:active {
+  transform: scale(0.95);
+}
+
+.starWars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.crawl {
+  position: relative;
+  top: 9999px;
+  transform-origin: 50% 100%;
+}
+
+.crawl[data-speed="1"]:not([data-paused="true"]) {
+  animation: crawl 60s linear infinite;
+}
+
+.crawl[data-speed="2"]:not([data-paused="true"]) {
+  animation: crawl 30s linear infinite;
+}
+
+.crawl[data-speed="3"]:not([data-paused="true"]) {
+  animation: crawl 20s linear infinite;
+}
+
+.crawl[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+.crawl > .title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+.crawl > .title p {
+  margin: 0;
+}
+
+.crawl > p {
+  margin: 0 0 3.75rem 0;
+}
+
+@keyframes crawl {
+  0% {
+    top: 100vh;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% { 
+    top: -7500px;
+    transform: rotateX(25deg) translateZ(-3000px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .controls {
+    padding: 1.5rem;
+  }
+  
+  .controlsWrapper {
+    gap: 1.5rem;
+  }
+  
+  .playPauseBtn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .playPauseBtn svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .speedBtn {
+    padding: 0.4rem 1rem;
+    font-size: 0.8125rem;
+  }
+  
+  .starWars {
+    font-size: 300%;
+    letter-spacing: 4px;
+  }
+  
+  .crawl[data-speed="1"]:not([data-paused="true"]) {
+    animation: crawl 70s linear infinite;
+  }
+  
+  .crawl[data-speed="2"]:not([data-paused="true"]) {
+    animation: crawl 35s linear infinite;
+  }
+  
+  .crawl[data-speed="3"]:not([data-paused="true"]) {
+    animation: crawl 23.33s linear infinite;
+  }
+  
+  @keyframes crawl {
+    0% {
+      top: 100vh;
+      transform: rotateX(20deg) translateZ(0);
+    }
+    100% { 
+      top: -6500px;
+      transform: rotateX(25deg) translateZ(-2500px);
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .controls {
+    padding: 1rem;
+  }
+  
+  .controlsWrapper {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .playPauseBtn {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .playPauseBtn svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .speedControls {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .speedBtn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    flex: 1;
+  }
+  
+  .starWars {
+    font-size: 250%;
+    letter-spacing: 2px;
+  }
+  
+  .crawl > .title h1 {
+    margin: 0 0 50px;
+  }
+  
+  .crawl[data-speed="1"]:not([data-paused="true"]) {
+    animation: crawl 65s linear infinite;
+  }
+  
+  .crawl[data-speed="2"]:not([data-paused="true"]) {
+    animation: crawl 32.5s linear infinite;
+  }
+  
+  .crawl[data-speed="3"]:not([data-paused="true"]) {
+    animation: crawl 21.67s linear infinite;
+  }
+  
+  @keyframes crawl {
+    0% {
+      top: 100vh;
+      transform: rotateX(20deg) translateZ(0);
+    }
+    100% { 
+      top: -5500px;
+      transform: rotateX(25deg) translateZ(-2000px);
+    }
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .controls {
+    padding: 0.75rem;
+  }
+  
+  .playPauseBtn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .playPauseBtn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .speedBtn {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .starWars {
+    font-size: 180%;
+    letter-spacing: 1.5px;
+  }
+  
+  .crawl[data-speed="1"]:not([data-paused="true"]) {
+    animation: crawl 60s linear infinite;
+  }
+  
+  .crawl[data-speed="2"]:not([data-paused="true"]) {
+    animation: crawl 30s linear infinite;
+  }
+  
+  .crawl[data-speed="3"]:not([data-paused="true"]) {
+    animation: crawl 20s linear infinite;
+  }
+  
+  @keyframes crawl {
+    0% {
+      top: 100vh;
+      transform: rotateX(20deg) translateZ(0);
+    }
+    100% { 
+      top: -5000px;
+      transform: rotateX(25deg) translateZ(-1800px);
+    }
+  }
+}

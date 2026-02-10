@@ -1,0 +1,155 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+[data-theme='light'] .overlay {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.modal {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 3rem;
+}
+
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: var(--color-red-primary);
+  border-radius: 4px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.closeButton:hover {
+  border-color: var(--color-red-primary);
+  color: var(--color-red-primary);
+  transform: rotate(90deg);
+}
+
+.imageGallery {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mainImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.role {
+  font-size: 0.95rem;
+  color: var(--color-red-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.techSection {
+  margin-top: 2rem;
+}
+
+.techTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tech {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--color-red-primary);
+  border-radius: 6px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 1rem;
+  }
+
+  .modal {
+    padding: 2rem 1.5rem;
+    max-height: 95vh;
+  }
+
+  .mainImage {
+    height: 250px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .closeButton {
+    top: 1rem;
+    right: 1rem;
+  }
+}

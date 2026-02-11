@@ -130,6 +130,7 @@ export const Navigation = ({
   const handleNavClick = (id: string) => {
     if (id === 'theme') {
       toggleTheme();
+      setIsMobileMenuOpen(false);
     } else {
       scrollTo(id);
       setIsMobileMenuOpen(false);
@@ -221,6 +222,7 @@ export const Navigation = ({
     <>
       <motion.nav
         className={styles.nav}
+        data-theme={isDark ? 'dark' : 'light'}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -285,8 +287,10 @@ export const Navigation = ({
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
+            {/* data-theme drives CSS variable swapping on the blade + panel */}
             <motion.div
               className={styles.lightsaberBlade}
+              data-theme={isDark ? 'dark' : 'light'}
               initial={{ height: 0 }}
               animate={{ height: '100vh' }}
               exit={{ height: 0 }}
@@ -295,6 +299,7 @@ export const Navigation = ({
 
             <motion.div
               className={styles.mobileMenu}
+              data-theme={isDark ? 'dark' : 'light'}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

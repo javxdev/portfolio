@@ -525,20 +525,6 @@
   background: rgba(255, 77, 77, 0.1);
 }
 
-.cardAccent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--color-primary-red) 0%,
-    #ff6b6b 100%
-  );
-  transform-origin: left;
-}
-
 .scrollIndicator {
   position: absolute;
   bottom: 3rem;
@@ -628,13 +614,17 @@
   }
 
   .card {
-    width: 360px;
-    height: 540px;
-    padding: 2rem 1.5rem;
+    width: 300px;
+    height: 520px;
+    padding: 0.5rem 1rem;
   }
 
   .cardContent {
     gap: 1.25rem;
+  }
+
+  .cardAccent {
+    height: 2px;
   }
 
   .cardTitle {
@@ -659,13 +649,5 @@
 
   .scrollIndicator {
     bottom: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 300px;
-    height: 520px;
-    padding: 1.75rem 1.25rem;
   }
 }

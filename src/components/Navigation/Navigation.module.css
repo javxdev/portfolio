@@ -11,7 +11,7 @@
   background: linear-gradient(
     180deg,
     var(--bg-primary) 0%,
-    rgba(10, 10, 10, 0.8) 50%,
+    var(--nav-gradient-mid) 50%,
     transparent 100%
   );
   backdrop-filter: blur(10px);
@@ -79,7 +79,7 @@
 
 .themeToggle {
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--theme-toggle-border);
   color: var(--color-text-primary);
   width: 40px;
   height: 40px;
@@ -127,15 +127,15 @@
   width: 3px;
   background: linear-gradient(
     to bottom,
-    rgba(255, 42, 42, 0) 0%,
-    rgba(255, 42, 42, 1) 10%,
-    rgba(255, 42, 42, 1) 90%,
-    rgba(255, 42, 42, 0) 100%
+    var(--blade-fade-start) 0%,
+    var(--blade-solid) 10%,
+    var(--blade-solid) 90%,
+    var(--blade-fade-end) 100%
   );
   box-shadow: 
-    0 0 10px rgba(255, 42, 42, 0.8),
-    0 0 20px rgba(255, 42, 42, 0.6),
-    0 0 30px rgba(255, 42, 42, 0.4);
+    0 0 10px var(--blade-glow-strong),
+    0 0 20px var(--blade-glow-mid),
+    0 0 30px var(--blade-glow-soft);
   z-index: 1001;
   pointer-events: none;
 }
@@ -147,17 +147,18 @@
   right: 0;
   width: 120px;
   height: 100vh;
-  background: rgba(10, 10, 10, 0.4);
+  background: var(--mobile-menu-bg);
   backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(255, 42, 42, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid var(--mobile-menu-border);
   z-index: 1001;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
   box-shadow: 
-    -5px 0 30px rgba(255, 42, 42, 0.1),
-    inset 1px 0 0 rgba(255, 42, 42, 0.2);
+    -5px 0 30px var(--mobile-menu-shadow-outer),
+    inset 1px 0 0 var(--mobile-menu-shadow-inner);
   pointer-events: auto;
 }
 
@@ -177,7 +178,7 @@
   width: 48px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.5));
+  filter: drop-shadow(0 0 10px var(--close-icon-glow));
   pointer-events: none;
 }
 
@@ -193,8 +194,8 @@
 }
 
 .mobileNavItem {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 42, 42, 0.2);
+  background: var(--nav-item-bg);
+  border: 1px solid var(--nav-item-border);
   color: var(--color-text-muted);
   width: 60px;
   height: 60px;
@@ -207,7 +208,7 @@
   position: relative;
   overflow: hidden;
   pointer-events: auto;
-  -webkit-tap-highlight-color: rgba(255, 42, 42, 0.3);
+  -webkit-tap-highlight-color: var(--tap-highlight);
   touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
@@ -222,7 +223,7 @@
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 42, 42, 0.1) 0%,
+    var(--nav-item-hover-gradient) 0%,
     transparent 100%
   );
   opacity: 0;
@@ -231,11 +232,11 @@
 }
 
 .mobileNavItem:hover {
-  border-color: rgba(255, 42, 42, 0.6);
+  border-color: var(--nav-item-hover-border);
   transform: translateY(-3px);
   box-shadow: 
-    0 5px 20px rgba(255, 42, 42, 0.2),
-    0 0 30px rgba(255, 42, 42, 0.1);
+    0 5px 20px var(--nav-item-hover-shadow),
+    0 0 30px var(--nav-item-hover-glow);
   color: var(--color-text-primary);
 }
 
@@ -253,12 +254,12 @@
 }
 
 .mobileNavItem.activeMobile {
-  background: rgba(255, 42, 42, 0.1);
-  border-color: rgba(255, 42, 42, 0.8);
-  color: #FF2A2A;
+  background: var(--nav-item-active-bg);
+  border-color: var(--nav-item-active-border);
+  color: var(--color-primary-red);
   box-shadow: 
-    0 0 20px rgba(255, 42, 42, 0.3),
-    inset 0 0 20px rgba(255, 42, 42, 0.1);
+    0 0 20px var(--nav-item-active-shadow),
+    inset 0 0 20px var(--nav-item-active-inset);
 }
 
 .mobileNavItem.activeMobile::before {

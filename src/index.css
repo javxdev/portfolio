@@ -1,4 +1,6 @@
 :root {
+  position: relative;
+
   /* Dark Mode Colors (Default) */
   --color-background: #0A0A0A;
   --color-surface: #121212;
@@ -9,11 +11,39 @@
   --color-text-muted: #9A9A9A;
   --color-border: rgba(255, 255, 255, 0.08);
 
+  --nav-gradient-mid:         rgba(10, 10, 10, 0.8);
+  --theme-toggle-border:      rgba(255, 255, 255, 0.1);
+
+  /* Lightsaber blade */
+  --blade-fade-start:         rgba(255, 42, 42, 0);
+  --blade-solid:              rgba(255, 42, 42, 1);
+  --blade-fade-end:           rgba(255, 42, 42, 0);
+  --blade-glow-strong:        rgba(255, 42, 42, 0.8);
+  --blade-glow-mid:           rgba(255, 42, 42, 0.6);
+  --blade-glow-soft:          rgba(255, 42, 42, 0.4);
+
+  /* Mobile menu panel */
+  --mobile-menu-bg:           rgba(10, 10, 10, 0.4);
+  --mobile-menu-border:       rgba(255, 42, 42, 0.2);
+  --mobile-menu-shadow-outer: rgba(255, 42, 42, 0.1);
+  --mobile-menu-shadow-inner: rgba(255, 42, 42, 0.2);
+
+  --nav-item-bg:              rgba(255, 255, 255, 0.05);
+  --nav-item-border:          rgba(255, 42, 42, 0.2);
+  --nav-item-hover-gradient:  rgba(255, 42, 42, 0.1);
+  --nav-item-hover-border:    rgba(255, 42, 42, 0.6);
+  --nav-item-hover-shadow:    rgba(255, 42, 42, 0.2);
+  --nav-item-hover-glow:      rgba(255, 42, 42, 0.1);
+  --nav-item-active-bg:       rgba(255, 42, 42, 0.1);
+  --nav-item-active-border:   rgba(255, 42, 42, 0.8);
+  --nav-item-active-shadow:   rgba(255, 42, 42, 0.3);
+  --nav-item-active-inset:    rgba(255, 42, 42, 0.1);
+  --tap-highlight:            rgba(255, 42, 42, 0.3);
+  --close-icon-glow:          rgba(0, 255, 0, 0.5);
+
   /* Typography */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
-
-  position: relative;
 }
 
 [data-theme='light'] {
@@ -24,6 +54,36 @@
   --color-text-primary: #0A0A0A;
   --color-text-muted: #5F6368;
   --color-border: rgba(0, 0, 0, 0.08);
+
+  --nav-gradient-mid:         rgba(245, 242, 237, 0.85);
+  --theme-toggle-border:      rgba(0, 0, 0, 0.12);
+
+  /* Lightsaber blade */
+  --blade-fade-start:         rgba(200, 20, 20, 0);
+  --blade-solid:              rgba(200, 20, 20, 1);
+  --blade-fade-end:           rgba(200, 20, 20, 0);
+  --blade-glow-strong:        rgba(200, 20, 20, 0.55);
+  --blade-glow-mid:           rgba(200, 20, 20, 0.35);
+  --blade-glow-soft:          rgba(200, 20, 20, 0.18);
+
+  /* Mobile menu panel */
+  --mobile-menu-bg:           rgba(255, 255, 255, 0.72);
+  --mobile-menu-border:       rgba(200, 20, 20, 0.18);
+  --mobile-menu-shadow-outer: rgba(200, 20, 20, 0.08);
+  --mobile-menu-shadow-inner: rgba(200, 20, 20, 0.12);
+
+  --nav-item-bg:              rgba(0, 0, 0, 0.04);
+  --nav-item-border:          rgba(200, 20, 20, 0.18);
+  --nav-item-hover-gradient:  rgba(200, 20, 20, 0.07);
+  --nav-item-hover-border:    rgba(200, 20, 20, 0.5);
+  --nav-item-hover-shadow:    rgba(200, 20, 20, 0.15);
+  --nav-item-hover-glow:      rgba(200, 20, 20, 0.08);
+  --nav-item-active-bg:       rgba(200, 20, 20, 0.08);
+  --nav-item-active-border:   rgba(200, 20, 20, 0.7);
+  --nav-item-active-shadow:   rgba(200, 20, 20, 0.22);
+  --nav-item-active-inset:    rgba(200, 20, 20, 0.07);
+  --tap-highlight:            rgba(200, 20, 20, 0.2);
+  --close-icon-glow:          rgba(0, 160, 0, 0.4);
 }
 
 /* Global Reset */

@@ -67,6 +67,8 @@ export const Skills = () => {
           >
             {skills.map((skill, index) => {
               const [isHovered, setIsHovered] = React.useState(false);
+              const [isTapped, setIsTapped] = React.useState(false);
+              const isActive = isHovered || isTapped;
               
               return (
                 <motion.div 
@@ -82,22 +84,19 @@ export const Skills = () => {
                   }}
                   onHoverStart={() => setIsHovered(true)}
                   onHoverEnd={() => setIsHovered(false)}
+                  onTap={() => setIsTapped(prev => !prev)}
                   whileHover={{ y: -8 }}
                 >
                   <motion.div 
                     className={styles.imageWrapper}
-                    animate={{ 
-                      opacity: isHovered ? 1 : 0,
-                    }}
+                    animate={{ opacity: isActive ? 1 : 0 }}
                     transition={{ duration: 0.4, ease: 'easeInOut' }}
                   >
                     <motion.img 
                       src={skill.image} 
                       alt={skill.title}
                       className={styles.cardImage}
-                      animate={{
-                        scale: isHovered ? 1.1 : 1,
-                      }}
+                      animate={{ scale: isActive ? 1.1 : 1 }}
                       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                     />
                   </motion.div>

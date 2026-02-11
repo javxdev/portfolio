@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 // Components
 import { Cursor } from './components/Cursor/Cursor';
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <>
+    <Analytics />
       <Cursor />
       <Navigation 
         scrollTo={scrollTo} 

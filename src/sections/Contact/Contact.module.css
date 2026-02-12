@@ -72,12 +72,13 @@
   font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
   color: var(--color-text-primary);
   margin-bottom: 1.25rem;
 }
 
 .titleAccent {
+  display: block;
   color: var(--color-primary-red);
   text-decoration: underline;
   text-decoration-color: rgba(225, 6, 0, 0.25);

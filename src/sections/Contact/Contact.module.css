@@ -1,14 +1,12 @@
-/* ─── Section ─────────────────────────────────────────────── */
 .contact {
+  display: flex;
   position: relative;
   min-height: 100vh;
   padding: 8rem 0 6rem;
-  overflow: hidden;
-  display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
-/* Scanlines overlay — subtle cinematic texture */
 .scanlines {
   position: absolute;
   inset: 0;
@@ -23,27 +21,25 @@
   );
 }
 
-/* ─── Container ────────────────────────────────────────────── */
 .container {
   max-width: 900px;
+  width: 100%;
+  position: relative;
   margin: 0 auto;
   padding: 0 2rem;
-  position: relative;
   z-index: 2;
-  width: 100%;
 }
 
-/* ─── Transmission label ───────────────────────────────────── */
 .transmission {
   display: flex;
-  align-items: center;
-  gap: 0.875rem;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.25em;
-  text-transform: uppercase;
   color: var(--color-primary-red);
+  align-items: center;
+  gap: 0.875rem;
   margin-bottom: 3rem;
+  text-transform: uppercase;
 }
 
 .transmissionDot {
@@ -67,7 +63,6 @@
   background: linear-gradient(to right, var(--color-primary-red), transparent);
 }
 
-/* ─── Heading ──────────────────────────────────────────────── */
 .headingBlock {
   margin-bottom: 4rem;
 }
@@ -84,33 +79,30 @@
 
 .titleAccent {
   color: var(--color-primary-red);
-  /* Faint holographic underline */
   text-decoration: underline;
   text-decoration-color: rgba(225, 6, 0, 0.25);
   text-underline-offset: 6px;
 }
 
 .subtitle {
+  max-width: 520px;
   font-family: 'Inter Tight', sans-serif;
   font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--color-text-muted);
-  max-width: 520px;
 }
 
-/* ─── Contact Grid ─────────────────────────────────────────── */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px;                       /* hairline gap — creates grid illusion */
+  gap: 1px;
   background: var(--border-glass);
   border: 1px solid var(--border-glass);
   border-radius: 16px;
-  overflow: hidden;
   margin-bottom: 4rem;
+  overflow: hidden;
 }
 
-/* ─── Card ─────────────────────────────────────────────────── */
 .card {
   position: relative;
   display: flex;
@@ -119,16 +111,15 @@
   padding: 2rem 1.75rem;
   background: var(--bg-surface);
   text-decoration: none;
+  transition: background 0.3s ease;
   cursor: none;
   overflow: hidden;
-  transition: background 0.3s ease;
 }
 
 .card:hover {
   background: rgba(225, 6, 0, 0.04);
 }
 
-/* Shimmer on hover */
 .cardShimmer {
   position: absolute;
   inset: 0;
@@ -147,33 +138,31 @@
   transform: translateX(100%);
 }
 
-/* Index number */
 .cardIndex {
+  position: absolute;
+  top: 1rem;
+  left: 1.75rem;
   font-family: 'General Sans', sans-serif;
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.15em;
+  line-height: 1;
   color: var(--color-primary-red);
   opacity: 0.6;
-  position: absolute;
-  top: 1rem;
-  left: 1.75rem;
-  line-height: 1;
 }
 
-/* Icon */
 .cardIcon {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 44px;
   height: 44px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   border: 1px solid var(--border-glass);
   background: var(--bg-primary);
   color: var(--color-text-muted);
-  margin-top: 0.75rem;          /* nudge below the index number */
+  margin-top: 0.75rem;
   transition: all 0.3s ease;
 }
 
@@ -183,14 +172,13 @@
   background: rgba(225, 6, 0, 0.08);
 }
 
-/* Text body */
 .cardBody {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  margin-top: 0.75rem;
   flex: 1;
   min-width: 0;
+  gap: 0.3rem;
+  margin-top: 0.75rem;
 }
 
 .cardLabel {
@@ -218,7 +206,6 @@
   color: var(--color-primary-red);
 }
 
-/* Arrow icon */
 .cardArrow {
   flex-shrink: 0;
   color: var(--color-text-muted);
@@ -234,7 +221,6 @@
   color: var(--color-primary-red);
 }
 
-/* ─── Marquee ticker ───────────────────────────────────────── */
 .marqueeWrapper {
   position: relative;
   overflow: hidden;
@@ -264,7 +250,6 @@
   will-change: transform;
 }
 
-/* Each set is an identical half — animation of -50% moves exactly one full set width */
 .marqueeSet {
   display: flex;
   flex-shrink: 0;
@@ -277,13 +262,13 @@
 
 .marqueeItem {
   display: inline-flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding-right: 2.5rem;
   font-family: 'General Sans', sans-serif;
   font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.3em;
+  align-items: center;
+  gap: 1.25rem;
+  padding-right: 2.5rem;
   text-transform: uppercase;
   color: var(--color-text-silver);
   opacity: 0.35;
@@ -294,7 +279,6 @@
   font-size: 0.75rem;
 }
 
-/* ─── Background ───────────────────────────────────────────── */
 .background {
   position: absolute;
   inset: 0;
@@ -323,7 +307,6 @@
   filter: blur(80px);
 }
 
-/* Horizon line — cinematic letterbox feel */
 .horizon {
   position: absolute;
   bottom: 0;
@@ -339,7 +322,6 @@
   );
 }
 
-/* ─── Responsive ───────────────────────────────────────────── */
 @media (max-width: 640px) {
   .contact {
     padding: 6rem 0 5rem;

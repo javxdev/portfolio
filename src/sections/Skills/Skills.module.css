@@ -6,10 +6,10 @@
 
 .stickyContainer {
   position: sticky;
-  top: 0;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  top: 0;
+  height: 100vh;
   justify-content: center;
   overflow: hidden;
 }
@@ -24,23 +24,23 @@
 .title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
   color: var(--color-text-primary);
-  letter-spacing: -0.02em;
 }
 
 .subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  color: var(--color-text-muted);
   font-weight: 400;
+  color: var(--color-text-muted);
 }
 
 .scrollWrapper {
   position: relative;
-  width: 100%;
-  overflow: hidden;
   display: flex;
+  width: 100%;
   align-items: center;
+  overflow: hidden;
 }
 
 .scrollContent {
@@ -52,17 +52,17 @@
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   width: 520px;
   height: 620px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 2.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  flex-shrink: 0;
+  overflow: hidden;
   cursor: pointer;
 }
 
@@ -90,11 +90,11 @@
 
 .cardContent {
   position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   height: 100%;
+  z-index: 2;
 }
 
 .cardHeader {
@@ -106,33 +106,33 @@
 .number {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--color-primary-red);
   letter-spacing: 0.1em;
+  color: var(--color-primary-red);
   text-transform: uppercase;
 }
 
 .cardTitle {
   font-size: 1.875rem;
   font-weight: 700;
-  color: var(--color-text-primary);
   letter-spacing: -0.02em;
   line-height: 1.2;
+  color: var(--color-text-primary);
   transition: color 0.4s ease;
 }
 
 .tagline {
   font-size: 1.125rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
   font-style: italic;
   line-height: 1.4;
+  color: var(--color-text-secondary);
   transition: color 0.4s ease;
 }
 
 .description {
   font-size: 1rem;
-  color: var(--color-text-muted);
   line-height: 1.6;
+  color: var(--color-text-muted);
   transition: color 0.4s ease;
 }
 
@@ -144,11 +144,11 @@
 
 .highlight {
   display: flex;
+  font-size: 0.95rem;
+  line-height: 1.6;
   align-items: flex-start;
   gap: 0.5rem;
-  font-size: 0.95rem;
   color: var(--color-text-secondary);
-  line-height: 1.6;
   transition: color 0.4s ease;
 }
 
@@ -159,8 +159,8 @@
 }
 
 .highlightIcon {
-  flex-shrink: 0;
   display: block;
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
 }
@@ -175,12 +175,12 @@
 .tech {
   font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--color-text-muted);
   background: var(--color-background-alt);
   padding: 0.375rem 0.75rem;
   border-radius: 4px;
-  border: 1px solid var(--color-border);
-  letter-spacing: 0.02em;
+  border: 1px solid var(--color-border); 
   transition: all 0.3s ease;
 }
 
@@ -216,9 +216,9 @@
 .scrollIndicator span {
   display: block;
   font-size: 0.75rem;
-  color: var(--color-text-muted);
   font-weight: 600;
   letter-spacing: 0.1em;
+  color: var(--color-text-muted);
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
@@ -252,7 +252,6 @@
   [data-theme="light"] .card:hover .highlight {
     color: #ffffff;
   }
-
   [data-theme="light"] .card:hover .tech {
     border-color: var(--color-primary-red);
     color: var(--color-primary-red);
@@ -267,7 +266,6 @@
   [data-theme="light"] .card.cardActive .highlight {
     color: #ffffff;
   }
-
   [data-theme="light"] .card.cardActive .tech {
     border-color: var(--color-primary-red);
     color: var(--color-primary-red);

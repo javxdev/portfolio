@@ -1,4 +1,5 @@
 .overlay {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -6,7 +7,6 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.9);
   z-index: 2000;
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
@@ -20,14 +20,13 @@
 
 .modal {
   position: relative;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
   max-width: 900px;
   width: 100%;
   max-height: 90vh;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   overflow-y: auto;
-  /* Prevent scroll from leaking to parent section */
   overscroll-behavior: contain;
   padding: 3rem;
 }
@@ -45,12 +44,16 @@
   border-radius: 4px;
 }
 
-/* ── Live Button — now a real filled button ── */
 .liveButton {
+  display: inline-flex;
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
   align-items: center;
   gap: 8px;
   padding: 0.55rem 1.1rem;
@@ -58,11 +61,6 @@
   border: 1.5px solid var(--color-primary-red);
   border-radius: 8px;
   color: #fff;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  text-transform: uppercase;
   cursor: pointer;
   transition:
     background 0.2s ease,
@@ -89,21 +87,20 @@
   transform: translate(3px, -3px);
 }
 
-/* ── Close Button ── */
 .closeButton {
+  display: flex;
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1rem;
+  left: 1rem;
   width: 40px;
   height: 40px;
-  display: flex;
+  font-size: 1.5rem;
   align-items: center;
   justify-content: center;
   background: var(--color-background);
   border: 1px solid var(--border-color);
   border-radius: 50%;
   color: var(--text-muted);
-  font-size: 1.5rem;
   transition: all 0.3s ease;
   z-index: 1;
   cursor: pointer;
@@ -115,7 +112,6 @@
   transform: rotate(90deg);
 }
 
-/* ── Image Gallery ── */
 .imageGallery {
   position: relative;
   width: 100%;
@@ -130,7 +126,6 @@
   object-fit: cover;
 }
 
-/* ── Content ── */
 .title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -140,9 +135,9 @@
 
 .role {
   font-size: 0.95rem;
-  color: var(--color-primary-red);
-  text-transform: uppercase;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary-red);
   margin-bottom: 2rem;
 }
 
@@ -172,16 +167,15 @@
 
 .tech {
   font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   padding: 0.5rem 1rem;
   background: var(--bg-primary);
   border: 1px solid var(--color-primary-red);
   border-radius: 6px;
   color: var(--text-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
   .overlay {
     padding: 1rem;
@@ -198,10 +192,5 @@
 
   .title {
     font-size: 2rem;
-  }
-
-  .closeButton {
-    top: 1rem;
-    right: 1rem;
   }
 }

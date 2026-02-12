@@ -1,4 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
+
+// Styles
 import styles from './About.module.css';
 
 export const About = () => {
@@ -38,8 +40,7 @@ export const About = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        
-        // Check if About section is fully or significantly in view
+
         if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
           setIsAboutInView(true);
         } else {
@@ -74,7 +75,6 @@ export const About = () => {
     };
   }, [hasLeft]);
 
-  // Auto-hide controls after 3 seconds of inactivity (only when About is in view)
   useEffect(() => {
     if (!isAboutInView) return;
 
@@ -143,119 +143,119 @@ export const About = () => {
   };
 
   return (
-    <section id="about" className={styles.about} ref={sectionRef}>
-      <div className={styles.stars} ref={starsRef}></div>
-      <div className={styles.fade}></div>
-      
-      <div className={`${styles.controls} ${isAboutInView && showControls ? styles.controlsVisible : styles.controlsHidden}`}>
-        <div className={styles.controlsWrapper}>
-          <button 
-            className={styles.playPauseBtn} 
-            onClick={togglePause}
-            aria-label={isPaused ? 'Play' : 'Pause'}
-          >
-            {isPaused ? (
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
+  <section id="about" className={styles.about} ref={sectionRef}>
+    <div className={styles.stars} ref={starsRef} />
+    <div className={styles.fade} />
+    
+    <div className={`${styles.controls} ${isAboutInView && showControls ? styles.controlsVisible : styles.controlsHidden}`}>
+      <div className={styles.controlsWrapper}>
+        <button 
+        className={styles.playPauseBtn} 
+        onClick={togglePause}
+        aria-label={isPaused ? 'Play' : 'Pause'}
+        >
+          {isPaused ? (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
             ) : (
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-              </svg>
-            )}
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+            </svg>
+          )}
+        </button>
+        
+        <div className={styles.speedControls}>
+          <button
+          className={`${styles.speedBtn} ${speed === 1 ? styles.active : ''}`}
+          onClick={() => handleSpeedChange(1)}
+          aria-label="Normal speed"
+          >
+            1x
           </button>
-
-          <div className={styles.speedControls}>
-            <button
-              className={`${styles.speedBtn} ${speed === 1 ? styles.active : ''}`}
-              onClick={() => handleSpeedChange(1)}
-              aria-label="Normal speed"
-            >
-              1x
-            </button>
-            <button
-              className={`${styles.speedBtn} ${speed === 2 ? styles.active : ''}`}
-              onClick={() => handleSpeedChange(2)}
-              aria-label="2x speed"
-            >
-              2x
-            </button>
-            <button
-              className={`${styles.speedBtn} ${speed === 3 ? styles.active : ''}`}
-              onClick={() => handleSpeedChange(3)}
-              aria-label="3x speed"
-            >
-              3x
-            </button>
-          </div>
+          <button
+          className={`${styles.speedBtn} ${speed === 2 ? styles.active : ''}`}
+          onClick={() => handleSpeedChange(2)}
+          aria-label="2x speed"
+          >
+            2x
+          </button>
+          <button
+          className={`${styles.speedBtn} ${speed === 3 ? styles.active : ''}`}
+          onClick={() => handleSpeedChange(3)}
+          aria-label="3x speed"
+          >
+            3x
+          </button>
         </div>
       </div>
-
-      <section className={styles.starWars}>
-        <div 
-          className={styles.crawl} 
-          ref={crawlRef}
-          data-speed={speed}
-          data-paused={isPaused}
-        >
-          <div className={styles.title}>
-            <p>Episode XXIII</p>
-            <h1>THE CODE AWAKENS</h1>
-          </div>
-
-          <p>
-            Forged in the modern web,
-            a developer emerges—
-            building fast, responsive experiences
-            for web and mobile platforms.
-          </p>
-
-          <p>
-            Armed with React, React Native,
-            TypeScript, Flutter, and 
-            cloud-driven architectures, each 
-            application is crafted for scale,
-            performance, and longevity.
-          </p>
-
-          <p>
-            From enterprise SaaS systems
-            to mobile apps and microservices,
-            every project is shaped with precision,
-            clean structure, and a relentless focus
-            on seamless user experience.
-          </p>
-
-          <p>
-            Through API integration,
-            thoughtful UI/UX implementation,
-            and cloud technologies,
-            complex business needs are transformed
-            into production-ready solutions.
-          </p>
-
-          <p>
-            Driven by motion design,
-            systems thinking, and 
-            elegant engineering, tools
-            are built to help teams move 
-            faster, think clearer, and 
-            build better—together.
-          </p>
-
-          <p>
-            Performance is refined.
-            Usability is sharpened.
-            Every line of code serves a purpose.
-          </p>
-
-          <p>
-            The future is not awaited.
-            It is engineered—
-            with intention, clarity, and craft.
-          </p>
+    </div>
+    
+    <section className={styles.starWars}>
+      <div 
+      className={styles.crawl} 
+      ref={crawlRef}
+      data-speed={speed}
+      data-paused={isPaused}
+      >
+        <div className={styles.title}>
+          <p>Episode XXIII</p>
+          <h1>THE CODE AWAKENS</h1>
         </div>
-      </section>
+        
+        <p>
+          Forged in the modern web,
+          a developer emerges—
+          building fast, responsive experiences
+          for web and mobile platforms.
+        </p>
+        
+        <p>
+          Armed with React, React Native,
+          TypeScript, Flutter, and 
+          cloud-driven architectures, each 
+          application is crafted for scale,
+          performance, and longevity.
+        </p>
+        
+        <p>
+          From enterprise SaaS systems
+          to mobile apps and microservices,
+          every project is shaped with precision,
+          clean structure, and a relentless focus
+          on seamless user experience.
+        </p>
+        
+        <p>
+          Through API integration,
+          thoughtful UI/UX implementation,
+          and cloud technologies,
+          complex business needs are transformed
+          into production-ready solutions.
+        </p>
+
+        <p>
+          Driven by motion design,
+          systems thinking, and 
+          elegant engineering, tools
+          are built to help teams move 
+          faster, think clearer, and 
+          build better—together.
+        </p>
+
+        <p>
+          Performance is refined.
+          Usability is sharpened.
+          Every line of code serves a purpose.
+        </p>
+
+        <p>
+          The future is not awaited.
+          It is engineered—
+          with intention, clarity, and craft.
+        </p>
+      </div>
     </section>
+  </section>
   );
 };

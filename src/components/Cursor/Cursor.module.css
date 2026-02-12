@@ -9,19 +9,18 @@
 .lightsaber {
   position: absolute;
   transform: translate(-50%, -50%) rotate(-45deg);
-  transform-origin: center top; /* Changed from center bottom to center top */
+  transform-origin: center top;
   filter: drop-shadow(0 0 8px var(--color-primary-red));
   transition: transform 0.1s ease-out;
 }
 
-/* Blade extending downward from the pointer */
 .blade {
   position: absolute;
-  top: 0; /* Changed from bottom: 50px */
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
   width: 6px;
   height: 80px;
+  transform: translateX(-50%);
   background: linear-gradient(180deg, 
     var(--color-primary-red) 0%,
     rgba(255, 42, 42, 0.9) 60%,
@@ -36,14 +35,13 @@
     inset 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-/* Glow effect */
 .glow {
   position: absolute;
-  top: 0; /* Changed from bottom: 50px */
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
   width: 20px;
   height: 80px;
+  transform: translateX(-50%);
   background: radial-gradient(ellipse, 
     rgba(225, 6, 0, 0.3) 0%,
     rgba(255, 42, 42, 0.1) 50%,
@@ -52,14 +50,13 @@
   border-radius: 50%;
 }
 
-/* Hilt (handle) at the bottom */
 .hilt {
   position: absolute;
-  top: 80px; /* Changed from bottom: 0 */
+  top: 80px;
   left: 50%;
-  transform: translateX(-50%);
   width: 12px;
   height: 50px;
+  transform: translateX(-50%);
   background: linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 50%, #1a1a1a 100%);
   border-radius: 2px;
   box-shadow: 
@@ -67,7 +64,6 @@
     inset 0 -2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Hilt details */
 .hilt::before {
   content: '';
   position: absolute;

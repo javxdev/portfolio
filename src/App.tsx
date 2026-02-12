@@ -22,15 +22,14 @@ import './App.css';
 function App() {
   const [isDark, setIsDark] = useState(true);
   const { scrollTo } = useLenis();
+  const toggleTheme = () => setIsDark(!isDark);
 
   useEffect(() => {
     document.documentElement.setAttribute(
       'data-theme',
       isDark ? 'dark' : 'light'
     );
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark(!isDark);
+  }, [isDark]);  
 
   return (
     <>

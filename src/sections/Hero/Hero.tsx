@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, type Variants } from 'framer-motion';
 
+// Styles
 import styles from './Hero.module.css';
 
 export const Hero = () => {
@@ -28,7 +29,7 @@ export const Hero = () => {
   useEffect(() => {
     const fullText = roles[roleIndex];
     let timeout: number;
-
+    
     if (!isDeleting && displayText.length < fullText.length) {
       timeout = window.setTimeout(() => {
         setDisplayText(fullText.slice(0, displayText.length + 1));
@@ -90,19 +91,19 @@ export const Hero = () => {
     <section id="hero" className={styles.hero}>
       <div className={styles.content}>
         <motion.div
-          className={styles.eyebrow}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        className={styles.eyebrow}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         >
           Frontend Engineer · Motion & Interaction
         </motion.div>
 
         <motion.h1
-          className={styles.title}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+        className={styles.title}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         >
           {titleWords.map((line, i) => (
             <motion.span key={i} className={styles.titleLine} variants={lineVariants}>
@@ -116,40 +117,44 @@ export const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className={styles.subtitle}
-          variants={subtitleVariants}
-          initial="hidden"
-          animate="visible"
+        className={styles.subtitle}
+        variants={subtitleVariants}
+        initial="hidden"
+        animate="visible"
         >
           Building precise, considered user interfaces
         </motion.p>
 
         <motion.div
-          className={styles.roles}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4, duration: 0.8 }}
+        className={styles.roles}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
         >
-          <span>Working on</span>
+          <span>
+            Working on
+          </span>
           <span className={styles.typeText}>
             {displayText}
-            <span className={styles.cursor} />
+          <span className={styles.cursor} />
           </span>
         </motion.div>
         <motion.div
-          className={styles.scrollIndicator}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+        className={styles.scrollIndicator}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
         >
           <div className={styles.mouse}>
             <motion.div
-              className={styles.wheel}
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+            className={styles.wheel}
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
             />
           </div>
-          <span>Scroll</span>
+          <span>
+            Scroll
+          </span>
         </motion.div>
       </div>
     </section>

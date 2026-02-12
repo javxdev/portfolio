@@ -1,8 +1,8 @@
 .projects {
   position: relative;
+  max-width: 1400px;
   min-height: 100vh;
   padding: 8rem 3rem;
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -21,10 +21,10 @@
 }
 
 .subtitle {
+  max-width: 600px;
   font-family: 'Inter Tight', sans-serif;
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--color-text-muted);
-  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -74,13 +74,13 @@
 }
 
 .projectTitle {
+  position: relative;
+  display: inline-block;
   font-family: 'General Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
   color: var(--color-text-primary);
-  position: relative;
-  display: inline-block;
   transition: color 0.4s ease;
 }
 
@@ -106,10 +106,10 @@
 .role {
   font-family: 'Inter Tight', sans-serif;
   font-size: 0.875rem;
+  letter-spacing: 0.05em;
   color: var(--color-primary-red);
   margin-bottom: 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .techStack {
@@ -123,16 +123,15 @@
   font-family: 'Inter Tight', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
+  letter-spacing: 0.05em;
   color: var(--color-text-muted);
   background: var(--color-background);
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* Responsive */
-
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

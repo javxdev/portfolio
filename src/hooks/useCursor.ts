@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useMotionValue } from 'framer-motion';
 
+// Types
 import type { CursorState, MagneticTarget } from '../data/types';
 
 export const useCursor = () => {

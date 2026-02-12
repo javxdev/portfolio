@@ -1,9 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, type Variants } from 'framer-motion';
+
+// Data and Types
 import { projects } from '../../data/projects';
 import { type Project } from '../../data/types';
+
+// Hooks
 import { useCursor } from '../../hooks/useCursor';
+
+// Components
 import { ProjectModal } from '../../components/ProjectModal/ProjectModal';
+
+// Styles
 import styles from './Projects.module.css';
 
 export const Projects = () => {
@@ -33,45 +41,51 @@ export const Projects = () => {
     <>
       <section id="projects" className={styles.projects}>
         <motion.div
-          className={styles.header}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8 }}
+        className={styles.header}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8 }}
         >
-          <h2 className={styles.title}>SELECTED WORK</h2>
+          <h2 className={styles.title}>
+            SELECTED WORK
+          </h2>
           <p className={styles.subtitle}>
             A collection of projects that pushed boundaries and delivered impact
           </p>
         </motion.div>
 
         <motion.div
-          className={styles.grid}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+        className={styles.grid}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
         >
           {projects.map((project, index) => (
             <motion.div
-              key={project.id}
-              ref={el => {
-                cardRefs.current[index] = el;
-              }}
-              className={styles.card}
-              variants={cardVariants}
-              onClick={() => setSelectedProject(project)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            key={project.id}
+            ref={el => {
+              cardRefs.current[index] = el;
+            }}
+            className={styles.card}
+            variants={cardVariants}
+            onClick={() => setSelectedProject(project)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             >
               <div className={styles.imageWrapper}>
                 <img src={project.image} alt={project.title} className={styles.image} />
               </div>
-
+              
               <div className={styles.content}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.role}>{project.role}</p>
-
+                <h3 className={styles.projectTitle}>
+                  {project.title}
+                </h3>
+                <p className={styles.role}>
+                  {project.role}
+                </p>
+                
                 <div className={styles.techStack}>
                   {project.techStack.slice(0, 4).map((tech, techIndex) => (
                     <span key={techIndex} className={styles.tech}>
@@ -89,8 +103,8 @@ export const Projects = () => {
       </section>
 
       <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+      project={selectedProject}
+      onClose={() => setSelectedProject(null)}
       />
     </>
   );

@@ -1,4 +1,7 @@
+// Types
 import { type Project } from './types';
+
+// Assets
 import luxBrandOutlet from '../assets/images/lux-brand-outlet.webp';
 import wonderKids from '../assets/images/wonderkids.webp';
 import sevenWonders from '../assets/images/7wonders.webp';

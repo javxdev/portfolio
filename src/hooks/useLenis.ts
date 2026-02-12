@@ -12,7 +12,6 @@ export const useLenis = () => {
     const isDesktop = window.innerWidth > 768;
     
     if (!isDesktop) {
-      // Native scroll progress tracking for mobile/tablet
       const handleScroll = () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -27,7 +26,6 @@ export const useLenis = () => {
       };
     }
 
-    // Desktop: Lenis scroll
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -73,7 +71,6 @@ export const useLenis = () => {
         duration,
       });
     } else if (typeof selector === 'string') {
-      // Fallback for mobile or before Lenis initializes
       const element = document.querySelector(selector);
       if (element) {
         const nav = document.querySelector('nav');
